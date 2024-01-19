@@ -302,11 +302,11 @@
     "net_format_name": "",
     "ngspice": {
       "fix_include_paths": true,
-      "fix_passive_vals": false,
+      "fix_passive_vals": true,
       "meta": {
         "version": 0
       },
-      "model_mode": 0,
+      "model_mode": 4,
       "workbook_filename": ""
     },
     "page_layout_descr_file": "",

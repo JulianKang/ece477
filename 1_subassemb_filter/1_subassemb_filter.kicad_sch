@@ -786,6 +786,11 @@
     (uuid fd268e8c-7f10-470d-aa4c-049f7174c3a5)
   )
 
+  (bus_entry (at 146.05 85.09) (size 2.54 2.54)
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 9e82c42b-96a6-453d-a76b-2c031de1b598)
+  )
+
   (wire (pts (xy 127 27.94) (xy 129.54 27.94))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 0091e863-8d56-49ae-a309-f23244b5495f)
@@ -1859,10 +1864,6 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid a663ae8c-c246-43ba-829c-b0c2e0498222)
   )
-  (text "0.1uF total\n(0.1061uF is ideal)" (at 45.72 96.52 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid a9b39d45-c752-49e9-995c-70dd4c080311)
-  )
   (text "Global Power/Voltage Sources" (at 125.73 162.56 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid b72a1397-5aa1-4574-9000-cd31b29bd66b)
@@ -2246,7 +2247,7 @@
     (property "Reference" "C4" (id 0) (at 40.6399 95.25 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "0.1 u" (id 1) (at 43.1799 95.25 0)
+    (property "Value" "0.47 u" (id 1) (at 43.1799 95.25 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "" (id 2) (at 41.91 100.33 0)
@@ -2376,7 +2377,7 @@
     (property "Reference" "C2" (id 0) (at 148.59 36.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100 u" (id 1) (at 148.59 39.37 0)
+    (property "Value" "22 u" (id 1) (at 148.59 39.37 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "" (id 2) (at 143.51 38.1 0)
@@ -2414,7 +2415,7 @@
     (property "Reference" "R16" (id 0) (at 143.51 113.0299 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "22000" (id 1) (at 143.51 115.5699 0)
+    (property "Value" "820" (id 1) (at 143.51 115.5699 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "" (id 2) (at 140.97 114.3 0)
@@ -3541,7 +3542,7 @@
     (property "Reference" "C5" (id 0) (at 110.49 111.76 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100 u" (id 1) (at 110.49 114.3 0)
+    (property "Value" "4.7 u" (id 1) (at 110.49 114.3 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "" (id 2) (at 105.41 113.03 0)
@@ -3609,7 +3610,7 @@
     (property "Reference" "R18" (id 0) (at 143.51 129.5399 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "2200" (id 1) (at 143.51 132.0799 0)
+    (property "Value" "124" (id 1) (at 143.51 132.0799 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "" (id 2) (at 140.97 130.81 0)
@@ -3703,7 +3704,7 @@
     (property "Reference" "R3" (id 0) (at 181.61 38.0999 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "820" (id 1) (at 181.61 40.6399 0)
+    (property "Value" "670" (id 1) (at 181.61 40.6399 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "" (id 2) (at 179.07 39.37 0)
@@ -3928,16 +3929,16 @@
       (reference "C1") (unit 1) (value "4.7 u") (footprint "")
     )
     (path "/1d0eaa6c-640f-410c-9d6e-71eefe2b6587"
-      (reference "C2") (unit 1) (value "100 u") (footprint "")
+      (reference "C2") (unit 1) (value "22 u") (footprint "")
     )
     (path "/86fa38b5-e636-45c7-865a-8e83980b13a9"
       (reference "C3") (unit 1) (value "4.7 u") (footprint "")
     )
     (path "/0a2865ac-0981-4ab0-82e0-17ed9181d443"
-      (reference "C4") (unit 1) (value "0.1 u") (footprint "")
+      (reference "C4") (unit 1) (value "0.47 u") (footprint "")
     )
     (path "/df12d1cb-221b-4f8f-9a7d-21930b715f8e"
-      (reference "C5") (unit 1) (value "100 u") (footprint "")
+      (reference "C5") (unit 1) (value "4.7 u") (footprint "")
     )
     (path "/fd68268c-e37c-4e5c-adcd-1315ac79b90f"
       (reference "R1") (unit 1) (value "220") (footprint "")
@@ -3946,7 +3947,7 @@
       (reference "R2") (unit 1) (value "220") (footprint "")
     )
     (path "/ed53fb8b-ae79-40cd-a939-1b03befcb068"
-      (reference "R3") (unit 1) (value "820") (footprint "")
+      (reference "R3") (unit 1) (value "670") (footprint "")
     )
     (path "/cd5f96ae-2d73-4da9-b938-c3a4b528330a"
       (reference "R4") (unit 1) (value "124") (footprint "")
@@ -3985,13 +3986,13 @@
       (reference "R15") (unit 1) (value "220") (footprint "")
     )
     (path "/32a5ff4f-5ba1-4eea-8fba-e3941a3149fd"
-      (reference "R16") (unit 1) (value "22000") (footprint "")
+      (reference "R16") (unit 1) (value "820") (footprint "")
     )
     (path "/421feea1-1821-466e-9aac-666207150bf7"
       (reference "R17") (unit 1) (value "150") (footprint "")
     )
     (path "/e2e530a3-e293-4e4f-85af-8d74ff1d540e"
-      (reference "R18") (unit 1) (value "2200") (footprint "")
+      (reference "R18") (unit 1) (value "124") (footprint "")
     )
     (path "/f412172e-90fa-4d77-89e1-cd3f69a8e009"
       (reference "R19") (unit 1) (value "150") (footprint "")

@@ -310,7 +310,7 @@
       "workbook_filename": ""
     },
     "page_layout_descr_file": "",
-    "plot_directory": "C:/Users/rydog/Documents/School Folders/ECE 47700/ProgressReport/img/1-25-24/",
+    "plot_directory": "C:/Users/rydog/Documents/School Folders/ECE 47700/ProgressReport/img/1-26-24/",
     "spice_adjust_passive_values": false,
     "spice_external_command": "spice \"%I\"",
     "subpart_first_id": 65,
@@ -320,6 +320,14 @@
     [
       "7913ba95-68ae-441c-bd63-66d93c22f7bf",
       ""
+    ],
+    [
+      "be9ac65e-6677-4445-9b0c-f24c824cf51b",
+      "HighLow Pass Filter"
+    ],
+    [
+      "620648aa-6796-4b5c-823c-1971b6e2eb52",
+      "Band Pass Filter"
     ]
   ],
   "text_variables": {}

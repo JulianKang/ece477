@@ -328,6 +328,10 @@
     [
       "016209f3-6b0c-4be6-bf7f-4e52cc050e04",
       "High and Low Pass"
+    ],
+    [
+      "4d0bd211-4794-4141-8b4c-fc5ed36fe38a",
+      "STM32 Interface"
     ]
   ],
   "text_variables": {}

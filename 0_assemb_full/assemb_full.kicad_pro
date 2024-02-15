@@ -332,6 +332,10 @@
     [
       "4d0bd211-4794-4141-8b4c-fc5ed36fe38a",
       "STM32 Interface"
+    ],
+    [
+      "8dc894f1-9f5e-4081-ad24-6e5a5b7c14be",
+      "Audio Amp"
     ]
   ],
   "text_variables": {}

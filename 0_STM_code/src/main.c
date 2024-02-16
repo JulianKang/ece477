@@ -113,27 +113,16 @@ void move_servo1(uint8_t scale, int position) {
 
 }
 
-void move_servo2(uint8_t scale) {
-	TIM1 -> CCR2 = 1400;
-	nano_wait(10000000000 / scale); // 1 second
-	TIM1 -> CCR2 = 6000;
-	nano_wait(10000000000 / scale);
+void move_servo2(uint8_t scale, int position) {
+	TIM1 -> CCR2 = position;
 
 }
-
-void move_servo3(uint8_t scale) {
-	TIM1 -> CCR3 = 1400;
-	nano_wait(10000000000 / scale); // 1 second
-	TIM1 -> CCR3 = 6000;
-	nano_wait(10000000000 / scale);
+void move_servo3(uint8_t scale, int position) {
+	TIM1 -> CCR3 = position;
 
 }
-
-void move_servo4(uint8_t scale) {
-	TIM1 -> CCR4 = 1400;
-	nano_wait(10000000000 / scale); // 1 second
-	TIM1 -> CCR4 = 6000;
-	nano_wait(10000000000 / scale);
+void move_servo4(uint8_t scale, int position) {
+	TIM1 -> CCR4 = position;
 
 }
 
@@ -142,15 +131,73 @@ void move_servo5(uint8_t scale, int value) {
 
 }
 
+//============================================================================
+// setup_adc()
+//============================================================================
+void setup_adc(void) {
+    RCC -> AHBENR |= RCC_AHBENR_GPIOCEN; 			// enable gpio C
+    GPIOC -> MODER |= 0x3F; 						// analog mode for gpio C0, C1, C2
+    RCC -> APB2ENR |= RCC_APB2Periph_ADC1; 			// ADC clock enable
+    RCC -> CR2 |= RCC_CR2_HSI14ON; 					// high speed internal (clock) 14 on
+    while(RCC -> CIR & RCC_CIR_HSI14RDYF == 0); 	// hsi 14 ready
+    ADC1->CFGR1 &= !(0x3 << 10);					// exten = 0
+    ADC1 -> CR |= ADC_CR_ADEN; 						// adc enable
+    ADC1->CFGR1 |= (0x1 << 13);						// continuous mode
+    ADC1->CFGR1 |= (0x3);							// enable dma circular mode and enable dma
+    while(ADC1 -> ISR & ADC_ISR_ADRDY == 0); 		// adc ready
+    ADC1 -> CHSELR |= ADC_CHSELR_CHSEL10; 			// channel selection register: select 0
+    ADC1 -> CHSELR |= ADC_CHSELR_CHSEL11; 			// channel selection register: select 1
+    ADC1 -> CHSELR |= ADC_CHSELR_CHSEL12; 			// channel selection register: select 2
+    ADC1->CR |= ADC_CR_ADSTART;
+}
+
+void adc_calib(void) {
+	if ((ADC1->CR & ADC_CR_ADEN) != 0) /* (1) */
+	{
+	 ADC1->CR &= (uint32_t)(~ADC_CR_ADEN); /* (2) */
+	}
+	ADC1->CR |= ADC_CR_ADCAL; /* (3) */
+	while ((ADC1->CR & ADC_CR_ADCAL) != 0) /* (4) */
+	{
+	 /* For robust implementation, add here time-out management */
+	}
+}
+
+uint16_t visualizer[3] = {0x0, 0x0, 0x0};
+
+void circular_mode_dma(void) {
+	/* (1) Enable the peripheral clock on DMA */
+	/* (2) Enable DMA transfer on ADC and circular mode */
+	/* (3) Configure the peripheral data register address */
+	/* (4) Configure the memory address */
+	/* (5) Configure the number of DMA tranfer to be performs
+	 on DMA channel 1 */
+	/* (6) Configure increment, size, interrupts and circular mode */
+	/* (7) Enable DMA Channel 1 */
+
+	RCC->AHBENR |= RCC_AHBENR_DMA1EN; /* (1) */
+	ADC1->CFGR1 |= ADC_CFGR1_DMAEN | ADC_CFGR1_DMACFG; /* (2) */
+	DMA1_Channel1->CPAR = (uint32_t) (&(ADC1->DR)); /* (3) */
+	DMA1_Channel1->CMAR = (uint32_t)(&display); /* (4) */
+	DMA1_Channel1->CNDTR = 3; /* (5) */
+	DMA1_Channel1->CCR |= DMA_CCR_MINC | DMA_CCR_MSIZE_0 | DMA_CCR_PSIZE_0
+	 | DMA_CCR_TEIE | DMA_CCR_CIRC; /* (6) */
+	DMA1_Channel1->CCR |= DMA_CCR_EN; /* (7) */
+}
+
 int main(void) {
     setup_tim1();
     setup_tim2();
     init_spi2();
+    adc_calib();
+    circular_mode_dma();
+    setup_adc();
 
     uint8_t bpm;
     uint8_t start;
 
     while(1){
+    	// check for dma ovr bit and reset if needed
 		while ((GPIOB->IDR & (0x1 << 7)) == (0x1 << 7)) {
 			while(SPI2->DR == 0);
 	        	bpm = SPI2->DR;
@@ -164,9 +211,7 @@ int main(void) {
 				nano_wait(10000000000 / bpm); // 1 second
 				move_servo1(bpm, 5000);
 				nano_wait(10000000000 / bpm);
-	//            move_servo2(bpm);
-	//            move_servo3(bpm);
-	//            move_servo4(bpm);
+
 				move_servo5(bpm, 1600);
 				nano_wait(10000000000 / bpm);
 				move_servo5(bpm, 6000);

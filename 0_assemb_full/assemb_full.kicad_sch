@@ -708,7 +708,6 @@
     )
   )
 
-
   (junction (at 241.3 17.78) (diameter 0) (color 0 0 0 0)
     (uuid 1da4c1c3-01b7-41c2-95bc-6c6f8639e021)
   )
@@ -1516,7 +1515,7 @@
     (property "Value" "MountingHole" (id 1) (at 100.33 156.2099 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "MountingHole:MountingHole_6.4mm_M6" (id 2) (at 97.79 154.94 0)
+    (property "Footprint" "MountingHole:MountingHole_3.2mm_M3" (id 2) (at 97.79 154.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 97.79 154.94 0)
@@ -1533,7 +1532,7 @@
     (property "Value" "MountingHole" (id 1) (at 80.01 156.2099 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "MountingHole:MountingHole_6.4mm_M6" (id 2) (at 77.47 154.94 0)
+    (property "Footprint" "MountingHole:MountingHole_3.2mm_M3" (id 2) (at 77.47 154.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 77.47 154.94 0)
@@ -1640,7 +1639,7 @@
     (property "Value" "MountingHole" (id 1) (at 80.01 163.8299 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "MountingHole:MountingHole_6.4mm_M6" (id 2) (at 77.47 162.56 0)
+    (property "Footprint" "MountingHole:MountingHole_3.2mm_M3" (id 2) (at 77.47 162.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 77.47 162.56 0)
@@ -1845,7 +1844,7 @@
     (property "Value" "MountingHole" (id 1) (at 100.33 163.8299 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "MountingHole:MountingHole_6.4mm_M6" (id 2) (at 97.79 162.56 0)
+    (property "Footprint" "MountingHole:MountingHole_3.2mm_M3" (id 2) (at 97.79 162.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 97.79 162.56 0)
@@ -2096,6 +2095,9 @@
     (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/f2133a8f-bbfb-4a67-816f-9c1b29e2b360"
       (reference "#PWR023") (unit 1) (value "GND") (footprint "")
     )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/72e1a72a-73f3-4e77-9cc1-64502cad8971"
+      (reference "#PWR024") (unit 1) (value "GND") (footprint "")
+    )
     (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/dffc0aac-0aa8-46f6-bf11-363286084e9a"
       (reference "#PWR025") (unit 1) (value "GND") (footprint "")
     )
@@ -2155,6 +2157,9 @@
     )
     (path "/8dc894f1-9f5e-4081-ad24-6e5a5b7c14be/eefa2ff1-a291-4c72-909c-c8ffcad01048"
       (reference "#PWR044") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/006e9ca3-93e1-436f-bcb0-b6de89c35cff"
+      (reference "#PWR045") (unit 1) (value "GND") (footprint "")
     )
     (path "/701dbde4-06b5-452b-9745-23728d983406"
       (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
@@ -2306,6 +2311,9 @@
     (path "/8dc894f1-9f5e-4081-ad24-6e5a5b7c14be/82af8b15-555e-4aa3-b60b-8cb662bc56db"
       (reference "C49") (unit 1) (value "1000p") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/fc4a95b0-c222-4472-8389-28a3852fca31"
+      (reference "C50") (unit 1) (value "0.1u") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+    )
     (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/822db18f-48d7-4f8b-90ac-b1d8ccd6b4ed"
       (reference "FB1") (unit 1) (value "FerriteBead") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
@@ -2322,16 +2330,16 @@
       (reference "FB5") (unit 1) (value "3.1A") (footprint "Specifics:BEADC2016X100N")
     )
     (path "/5cd393c2-fe36-4948-8074-481fc7601eb3"
-      (reference "H1") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_6.4mm_M6")
+      (reference "H1") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.2mm_M3")
     )
     (path "/553fbf29-cee2-4c40-b73f-a88188719d8f"
-      (reference "H2") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_6.4mm_M6")
+      (reference "H2") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.2mm_M3")
     )
     (path "/79a8d5eb-9c1a-4b82-9a43-f5f942096787"
-      (reference "H3") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_6.4mm_M6")
+      (reference "H3") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.2mm_M3")
     )
     (path "/d0417bfa-517d-41a0-a9a3-7574aae19384"
-      (reference "H4") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_6.4mm_M6")
+      (reference "H4") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.2mm_M3")
     )
     (path "/3e1ccb16-5496-4985-9aa9-d268c89cac5f"
       (reference "J1") (unit 1) (value "BarrelJack") (footprint "Connector_BarrelJack:BarrelJack_CUI_PJ-102AH_Horizontal")
@@ -2626,6 +2634,9 @@
     )
     (path "/8dc894f1-9f5e-4081-ad24-6e5a5b7c14be/b5be384d-9525-4eb9-bf55-0b09e53ad0bf"
       (reference "U6") (unit 1) (value "TPA3138D2PWP") (footprint "Specifics:IC_TPS61196PWPRQ1")
+    )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/dceda6e1-ad66-458a-ad2b-e62ed900e637"
+      (reference "U7") (unit 1) (value "MAX7375AXR805") (footprint "Package_TO_SOT_SMD:SOT-323_SC-70")
     )
   )
 )

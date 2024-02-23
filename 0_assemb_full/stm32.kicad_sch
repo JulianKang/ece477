@@ -1759,7 +1759,7 @@
     (in_bom yes) (on_board yes)
     (uuid 729eec82-86dc-440d-b039-b4409bb97c4f)
     (property "Reference" "J9" (id 0) (at 50.8 111.9886 0))
-    (property "Value" "Conn_02x05_Odd_Even" (id 1) (at 50.8 114.3 0))
+    (property "Value" "ProgHeader" (id 1) (at 50.8 114.3 0))
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical" (id 2) (at 49.53 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )

@@ -5,7 +5,7 @@
   (paper "A4")
 
   (title_block
-    (title "High and Low Pass Filters with Bar Graph LEDs")
+    (title "High and Low Pass Filter")
   )
 
   (lib_symbols

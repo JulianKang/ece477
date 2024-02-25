@@ -4,6 +4,10 @@
 
   (paper "A4")
 
+  (title_block
+    (title "Power and Board I/O")
+  )
+
   (lib_symbols
     (symbol "Amplifier_Operational:LM2902" (pin_names (offset 0.127)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at 0 5.08 0)
@@ -2021,9 +2025,6 @@
     (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/e3cc4721-d41c-4649-af5d-bf5cb4db0472"
       (reference "#PWR013") (unit 1) (value "GND") (footprint "")
     )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/f65b347d-1906-41a8-a443-040d2c14d2f3"
-      (reference "#PWR014") (unit 1) (value "GND") (footprint "")
-    )
     (path "/016209f3-6b0c-4be6-bf7f-4e52cc050e04/00c51497-9409-4520-8a70-92b48d98715b"
       (reference "#PWR015") (unit 1) (value "GND") (footprint "")
     )
@@ -2373,16 +2374,16 @@
       (reference "L6") (unit 1) (value "4.7m") (footprint "Inductor_THT:L_Radial_D9.5mm_P5.00mm_Fastron_07HVP")
     )
     (path "/8dc894f1-9f5e-4081-ad24-6e5a5b7c14be/2cdf5a20-566d-409f-92cf-c066a4af248f"
-      (reference "LS1") (unit 1) (value "8 ohms") (footprint "Connector_Wire:SolderWire-2.5sqmm_1x02_P7.2mm_D2.4mm_OD3.6mm")
+      (reference "LS1") (unit 1) (value "8 ohms") (footprint "Connector_Wire:SolderWire-2sqmm_1x02_P7.8mm_D2mm_OD3.9mm")
     )
     (path "/8dc894f1-9f5e-4081-ad24-6e5a5b7c14be/41db7f69-e5f0-4766-b41d-b0ac805900db"
-      (reference "LS2") (unit 1) (value "8 ohms") (footprint "Connector_Wire:SolderWire-2.5sqmm_1x02_P7.2mm_D2.4mm_OD3.6mm")
+      (reference "LS2") (unit 1) (value "8 ohms") (footprint "Connector_Wire:SolderWire-2sqmm_1x02_P7.8mm_D2mm_OD3.9mm")
     )
     (path "/8dc894f1-9f5e-4081-ad24-6e5a5b7c14be/b519694f-a9a7-4906-a169-735fae136041"
-      (reference "LS3") (unit 1) (value "8 ohms") (footprint "Connector_Wire:SolderWire-2.5sqmm_1x02_P7.2mm_D2.4mm_OD3.6mm")
+      (reference "LS3") (unit 1) (value "8 ohms") (footprint "Connector_Wire:SolderWire-2sqmm_1x02_P7.8mm_D2mm_OD3.9mm")
     )
     (path "/8dc894f1-9f5e-4081-ad24-6e5a5b7c14be/19bbda56-812e-467b-b4c1-9d41b601a6be"
-      (reference "LS4") (unit 1) (value "8 ohms") (footprint "Connector_Wire:SolderWire-2.5sqmm_1x02_P7.2mm_D2.4mm_OD3.6mm")
+      (reference "LS4") (unit 1) (value "8 ohms") (footprint "Connector_Wire:SolderWire-2sqmm_1x02_P7.8mm_D2mm_OD3.9mm")
     )
     (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/5a4d8b69-7354-4d43-b6c0-a8ca9be8d8c7"
       (reference "R1") (unit 1) (value "240") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
@@ -2416,30 +2417,6 @@
     )
     (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/60231383-8b9b-4a4e-b1b3-7ecaceadc095"
       (reference "R11") (unit 1) (value "120") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
-    )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/7411e74d-2ac9-4356-ae29-fd8399af3f31"
-      (reference "R12") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
-    )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/536601fe-b1bf-4eca-9e23-e525e8086e7f"
-      (reference "R13") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
-    )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/3245bbfe-7533-4f4e-8751-65166ad30d33"
-      (reference "R14") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
-    )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/28b732bb-c589-40eb-b5c8-75949f6459e6"
-      (reference "R15") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
-    )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/317bb91a-dacc-486d-8820-d84d8e4ef061"
-      (reference "R16") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
-    )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/3612d0f6-a6f5-4ef7-8d12-2c00f1b34391"
-      (reference "R17") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
-    )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/ebdfd93c-5c75-4510-bdc8-d4ca58791039"
-      (reference "R18") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
-    )
-    (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/a425dd13-2c9a-4d72-a2f2-746e6c9237be"
-      (reference "R19") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/016209f3-6b0c-4be6-bf7f-4e52cc050e04/6322e136-6565-4534-9cec-e553b466d6c3"
       (reference "R20") (unit 1) (value "220") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")

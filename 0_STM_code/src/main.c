@@ -62,7 +62,8 @@ void init_spi2(void) {
     SPI2 -> CR1 |= SPI_CR1_RXONLY; 		// receive only mode
 
 	SPI2->CR2 |= SPI_CR2_RXNEIE;		// enable buffer not empty interupt
-	SPI2->CR2 |= SPI_CR2_FRXTH;			// RXNE event is generated if the FIFO level is greater than or equal to 1/4 (8-bit)
+	SPI2->CR2 |= SPI_CR2_FRXTH;			// RXNE event is generated if the FIFO level is greater than or
+										// equal to 1/4 (8-bit)
 	SPI2->CR2 |= SPI_CR2_DS_2 | SPI_CR2_DS_1 | SPI_CR2_DS_0; // set data size to 8-bit word
 
     SPI2 -> CR1 |= SPI_CR1_SPE;			// re-enable SPE now that it's configured
@@ -108,26 +109,20 @@ void setup_tim2(void) {
     TIM2 -> CR1 |= TIM_CR1_CEN;
 }
 
-void move_servo1(uint8_t scale, int position) {
-	TIM1 -> CCR1 = position;
-
-}
-
-void move_servo2(uint8_t scale, int position) {
-	TIM1 -> CCR2 = position;
-
-}
-void move_servo3(uint8_t scale, int position) {
-	TIM1 -> CCR3 = position;
-
-}
-void move_servo4(uint8_t scale, int position) {
-	TIM1 -> CCR4 = position;
-
-}
-
-void move_servo5(uint8_t scale, int value) {
-	TIM2 -> CCR2 = value;
+void move_servo(int servo, int position) {
+	switch(servo) {
+		case 1: TIM1 -> CCR1 = position;
+				break;
+		case 2: TIM1 -> CCR2 = position;
+				break;
+		case 3: TIM1 -> CCR3 = position;
+				break;
+		case 4: TIM1 -> CCR4 = position;
+				break;
+		case 5: TIM2 -> CCR2 = position;
+				break;
+		default: break;
+	}
 
 }
 
@@ -178,11 +173,78 @@ void circular_mode_dma(void) {
 	RCC->AHBENR |= RCC_AHBENR_DMA1EN; /* (1) */
 	ADC1->CFGR1 |= ADC_CFGR1_DMAEN | ADC_CFGR1_DMACFG; /* (2) */
 	DMA1_Channel1->CPAR = (uint32_t) (&(ADC1->DR)); /* (3) */
-	DMA1_Channel1->CMAR = (uint32_t)(&display); /* (4) */
+	DMA1_Channel1->CMAR = (uint32_t)(&visualizer); /* (4) */
 	DMA1_Channel1->CNDTR = 3; /* (5) */
 	DMA1_Channel1->CCR |= DMA_CCR_MINC | DMA_CCR_MSIZE_0 | DMA_CCR_PSIZE_0
 	 | DMA_CCR_TEIE | DMA_CCR_CIRC; /* (6) */
 	DMA1_Channel1->CCR |= DMA_CCR_EN; /* (7) */
+}
+
+int get_angle_delta(int current_angle, int previous_angle, int time_increments) {
+	return current_angle - previous_angle / time_increments;
+}
+
+int get_CCR_value(int angle) {
+	return 40.448 + (0.037 * angle);
+}
+
+int get_new_CCR_value(int CCR_value, int CCR_delta, int ADC_sigmoid) {
+	// set new ccr value using delta and sigmoid function
+	int new_CCR_value = CCR_value + CCR_delta + ADC_sigmoid;
+
+	// fail safe to not burn out motor
+	if(new_CCR_value > 7000) {
+		new_CCR_value = 7000;
+	}
+	else if(new_CCR_value < 1400) {
+		new_CCR_value = 1400;
+	}
+
+	return new_CCR_value;
+}
+
+void manage_section( int converted_time, int previous_angle1, int current_angle1, int previous_angle2,
+		int current_angle2, int previous_angle3, int current_angle3, int previous_angle4, int current_angle4,
+		int previous_angle5, int current_angle5) {
+
+	int time_increments = converted_time / 0.1;
+
+	// motor 1 values
+	int angle_delta1 = get_angle_delta(current_angle1, previous_angle1, time_increments);
+	int CCR_value1 = get_CCR_value(previous_angle1);
+	int CCR_delta1 = get_CCR_value(angle_delta1);
+	// motor 2 values
+	int angle_delta2 = get_angle_delta(current_angle2, previous_angle2, time_increments);
+	int CCR_value2 = get_CCR_value(previous_angle2); // current CCR value
+	int CCR_delta2 = get_CCR_value(angle_delta2);
+	// motor 3 values
+	int angle_delta3 = get_angle_delta(current_angle3, previous_angle3, time_increments);
+	int CCR_value3 = get_CCR_value(previous_angle3); // current CCR value
+	int CCR_delta3 = get_CCR_value(angle_delta3);
+	// motor 4 values
+	int angle_delta4 = get_angle_delta(current_angle4, previous_angle4, time_increments);
+	int CCR_value4 = get_CCR_value(previous_angle4); // current CCR value
+	int CCR_delta4 = get_CCR_value(angle_delta4);
+	// motor 5 values
+	int angle_delta5 = get_angle_delta(current_angle5, previous_angle5, time_increments);
+	int CCR_value5 = get_CCR_value(previous_angle5); // current CCR value
+	int CCR_delta5 = get_CCR_value(angle_delta5);
+
+	for(int i = 0; i + 1; i < time_increments) {
+		CCR_value1 = get_new_CCR_value(CCR_value1, CCR_delta1, ADC_sigmoid);
+		CCR_value2 = get_new_CCR_value(CCR_value2, CCR_delta2, ADC_sigmoid);
+		CCR_value3 = get_new_CCR_value(CCR_value3, CCR_delta3, ADC_sigmoid);
+		CCR_value4 = get_new_CCR_value(CCR_value4, CCR_delta4, ADC_sigmoid);
+		CCR_value5 = get_new_CCR_value(CCR_value5, CCR_delta5, ADC_sigmoid);
+
+		move_servo(1, CCR_value1);
+		move_servo(2, CCR_value2);
+		move_servo(3, CCR_value3);
+		move_servo(4, CCR_value4);
+		move_servo(5, CCR_value5);
+		// wait for timer
+		// reset timer
+	}
 }
 
 int main(void) {
@@ -199,23 +261,26 @@ int main(void) {
     while(1){
     	// check for dma ovr bit and reset if needed
 		while ((GPIOB->IDR & (0x1 << 7)) == (0x1 << 7)) {
-			while(SPI2->DR == 0);
+//			while(SPI2->DR == 0);
 	        	bpm = SPI2->DR;
-				if (bpm == 0) {
-					// don't let the BPM be 0
-					bpm = 1;
-				}
+//				if (bpm == 0) {
+//					// don't let the BPM be 0
+//					bpm = 1;
+//				}
+//				if(bpm == 100) {
+//					start = 1;
+//				}
 
 				// run dance routine, wait times scaled by the BPM
-				move_servo1(bpm, 6000);
-				nano_wait(10000000000 / bpm); // 1 second
-				move_servo1(bpm, 5000);
-				nano_wait(10000000000 / bpm);
-
-				move_servo5(bpm, 1600);
-				nano_wait(10000000000 / bpm);
-				move_servo5(bpm, 6000);
-				nano_wait(10000000000 /bpm);
+//				move_servo1(bpm, 6000);
+//				nano_wait(10000000000 / bpm); // 1 second
+//				move_servo1(bpm, 5000);
+//				nano_wait(10000000000 / bpm);
+//
+//				move_servo5(bpm, 1600);
+//				nano_wait(10000000000 / bpm);
+//				move_servo5(bpm, 6000);
+//				nano_wait(10000000000 /bpm);
 			}
     }
 }

@@ -1447,7 +1447,7 @@
     (property "Value" "BarrelJack" (id 1) (at 246.38 22.86 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Connector_BarrelJack:BarrelJack_CUI_PJ-102AH_Horizontal" (id 2) (at 248.92 17.78 0)
+    (property "Footprint" "Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal" (id 2) (at 248.92 17.78 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 248.92 17.78 0)
@@ -2472,7 +2472,7 @@
       (reference "H4") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.2mm_M3")
     )
     (path "/3e1ccb16-5496-4985-9aa9-d268c89cac5f"
-      (reference "J1") (unit 1) (value "BarrelJack") (footprint "Connector_BarrelJack:BarrelJack_CUI_PJ-102AH_Horizontal")
+      (reference "J1") (unit 1) (value "BarrelJack") (footprint "Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal")
     )
     (path "/9119ee79-ac43-4908-ba85-62b847bd6c6c"
       (reference "J2") (unit 1) (value "Conn_02x06") (footprint "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical")

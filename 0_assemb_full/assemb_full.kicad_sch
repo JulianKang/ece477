@@ -2519,9 +2519,6 @@
     (path "/1d0ef5db-c335-4d55-88dd-66a03b46c698"
       (reference "J12") (unit 1) (value "LEDConn_01x05") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical")
     )
-    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/2faa9641-2ece-4171-8790-3945bf54da23"
-      (reference "J13") (unit 1) (value "RPiConn_01x03") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical")
-    )
     (path "/ba21e8b0-efb7-4c13-98e2-ebc8a39461f9"
       (reference "JP1") (unit 1) (value "Jumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm")
     )
@@ -2703,19 +2700,37 @@
       (reference "TP6") (unit 1) (value "SPI2_MOSI/ADC_IN13") (footprint "TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm")
     )
     (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/8bea5772-dbb3-47fc-a6ce-f69b2cadc325"
-      (reference "TP7") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm")
+      (reference "TP7") (unit 1) (value "MOSI") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
     )
     (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/80cbcb0d-211a-43fc-8494-7947ec4df258"
-      (reference "TP8") (unit 1) (value "BP_LP") (footprint "TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm")
+      (reference "TP8") (unit 1) (value "BP_LP") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
     )
     (path "/27872fd8-6da5-4d41-bede-b1346c5a5ef3/e3d5c741-cb89-437e-a559-c465e0187aa8"
-      (reference "TP9") (unit 1) (value "BP_HP") (footprint "TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm")
+      (reference "TP9") (unit 1) (value "BP_HP") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
     )
     (path "/016209f3-6b0c-4be6-bf7f-4e52cc050e04/510520c1-55f2-4cb7-bb25-9bfe153de492"
-      (reference "TP10") (unit 1) (value "LP") (footprint "TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm")
+      (reference "TP10") (unit 1) (value "LP") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
     )
     (path "/016209f3-6b0c-4be6-bf7f-4e52cc050e04/e8c1a895-0ce2-44c6-840e-a2f04c1c48b0"
-      (reference "TP11") (unit 1) (value "HP") (footprint "TestPoint:TestPoint_THTPad_1.5x1.5mm_Drill0.7mm")
+      (reference "TP11") (unit 1) (value "HP") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/400dd84a-ee48-4f99-b5e5-470878ebe3ca"
+      (reference "TP12") (unit 1) (value "GPIO1") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/5cfdd13e-b6b2-4700-8855-100e4929b3fc"
+      (reference "TP13") (unit 1) (value "GPIO4") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/791b6d97-de7b-4e6f-993c-3e776ebf4fe0"
+      (reference "TP14") (unit 1) (value "GPIO2") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/43b96d5b-5d91-4711-bef1-1b84e6b1d692"
+      (reference "TP15") (unit 1) (value "GPIO5") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/d312df1b-3d26-46f6-b893-f439a946569b"
+      (reference "TP16") (unit 1) (value "GPIO3") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/337aad0a-13af-4869-8fe5-b2ef4b6d779c"
+      (reference "TP17") (unit 1) (value "GPIO6") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
     )
     (path "/b347a96f-9138-4766-a39c-8f4873fd5a10"
       (reference "U1") (unit 1) (value "LM2902") (footprint "Package_DIP:DIP-14_W7.62mm")

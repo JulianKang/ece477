@@ -2291,6 +2291,9 @@
     (path "/b831f6f8-6160-4e28-99bc-c697637ee673"
       (reference "#PWR0102") (unit 1) (value "GND") (footprint "")
     )
+    (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/7f1d00ae-7094-4a3d-b94c-fca97e16a360"
+      (reference "#PWR0103") (unit 1) (value "GND") (footprint "")
+    )
     (path "/cd612509-862c-41d8-8f64-7c51da5020d1"
       (reference "C1") (unit 1) (value "0.1u") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
@@ -2511,7 +2514,7 @@
       (reference "J9") (unit 1) (value "ProgHeader") (footprint "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical")
     )
     (path "/4d0bd211-4794-4141-8b4c-fc5ed36fe38a/100fdcba-4ad6-4620-94f4-7ddc5776d3cc"
-      (reference "J10") (unit 1) (value "SPIConn_01x03") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical")
+      (reference "J10") (unit 1) (value "SPIConn_01x03") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
     )
     (path "/45bc5d49-293f-4749-a50b-3cd4b6975119"
       (reference "J11") (unit 1) (value "OutToRPi") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
